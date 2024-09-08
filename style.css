@@ -1,7 +1,24 @@
+@font-face {
+	font-family: "OCR";
+	src: url("./fonts/OCR-B.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "OCRRU";
+	src: url("./fonts/ocrb.ttf") format("truetype");
+}
+
 main {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+}
+
+.passport_eng {
+	font-family: "OCR";
+}
+.passport_ru {
+	font-family: "OCRRU";
 }
 
 .pythagoras__range {
