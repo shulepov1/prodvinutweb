@@ -1,0 +1,39 @@
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.pythagoras__range {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.row {
+	display: flex;
+}
+
+.cell {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+	border-right: none;
+
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cell:last-child {
+	border-right: 1px solid black;
+}
+
+.border {
+	background-color: skyblue;
+}
+
+.diagonal {
+	background-color: darkkhaki;
+}
