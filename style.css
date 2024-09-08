@@ -14,13 +14,6 @@ main {
 	gap: 2rem;
 }
 
-.passport_eng {
-	font-family: "OCR";
-}
-.passport_ru {
-	font-family: "OCRRU";
-}
-
 .pythagoras__range {
 	display: flex;
 	gap: 1rem;
@@ -53,4 +46,71 @@ main {
 
 .diagonal {
 	background-color: darkkhaki;
+}
+
+.passport_eng {
+	font-family: "OCR";
+}
+.passport_ru {
+	font-family: "OCRRU";
+}
+
+.passport-wrapper {
+	position: relative;
+}
+
+.firstPage, .secondPage {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.passport_eng > .firstPage {
+	font-size: 0.9375rem;
+}
+.passport_eng > .secondPage {
+	top: 620px;
+	font-size: 1rem;
+}
+.passport_eng > .sex {
+	font-size: 0
+}
+
+.secondPage {
+	top: 50%;
+	font-size: 1.25rem;
+}
+
+.kem {
+	transform: translate(110px, 80px);
+	max-width: 325px;
+}
+.kogda {
+	transform: translate(95px, 110px);
+	font-size: 0.9rem;
+}
+.kod {
+	transform: translate(320px, 95px);
+	font-size: 0.9rem;
+}
+
+.surname {
+	transform: translate(260px, 39px)
+}
+.name {
+	transform: translate(260px, 70px);
+}
+.otchestvo {
+	transform: translate(240px, 78px);
+}
+.sex {
+	transform: translate(200px, 85px);
+}
+.dateOfBirth{
+	font-size: 1rem;
+	transform: translate(300px, 65px);
+}
+.placeOfBirth{
+	font-size: 1rem;
+	transform: translate(220px, 75px);
 }

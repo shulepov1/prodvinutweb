@@ -53,3 +53,65 @@ function updateTable(n) {
 		table.appendChild(row);
 	}
 }
+
+const passport = document.querySelector(".passport");
+passport.classList.add("passport_ru");
+
+const data = {
+	kem: {
+		ru: "Отделом таким-то по г.Москваотделом таким-то по г.Москва",
+		eng: "Otdel Otdel Moskva Otdel Moskva Otdel Otdel Otdel Otdel"
+	},
+	kogda: {
+		ru:  "21.05.2012",
+		eng: "21.05.2012"
+	},
+	kod: {
+		ru: "440-002",
+		eng: "440-002"
+	},
+	surname: {
+		ru: "Иванов",
+		eng: "Ivanov"
+	},
+	name: {
+		ru: "Петр",
+		eng: "Petr"
+	},
+	otchestvo: {
+		ru: "Олегович",
+		eng: "Olegovich"
+	},
+	sex: {
+		ru: "МУЖ",
+		eng: "M"
+	},
+	dateOfBirth: {
+		ru: "03.03.2003",
+		eng: "03.03.2003"
+	},
+	placeOfBirth: {
+		ru: "г. Москва",
+		eng: "Moscow"
+	}
+}
+
+const languageButtons = document.querySelectorAll("[name='lang']");
+console.log(languageButtons);
+
+languageButtons.forEach((inpt) => {
+	inpt.addEventListener("click", (event) => {
+		updatePassportData(event.currentTarget.value);
+	})
+});
+
+function updatePassportData(lang) {
+		passport.className = `passport_${lang}`;
+		[...passport.children].forEach((elt) => {
+			if (elt.nodeName === "DIV") {
+				[...elt.children].forEach((child) => {
+					child.textContent = data[child.className][lang];
+				})
+			}
+		})
+}
