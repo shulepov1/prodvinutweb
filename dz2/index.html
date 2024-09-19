@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="./style.css"></link>
   </head>
   <body>
+    <a href="../index.html">&larr;</a>
     <h1>dz2</h1>
-    <div class="task"> 
-      <h2>task1:</h2>
-      <p>введите длины сторон треугольника:</p>
-      <div>
-        <label for="triangle_a">a:</label>
-        <input id="triangle_a" type="number" min="1"/>
+    <div class="tasks">
+      <div class="task"> 
+        <h2>task1:</h2>
+        <p>введите длины сторон треугольника:</p>
+        <div>
+          <label for="triangle_a">a:</label>
+          <input id="triangle_a" type="number" min="1"/>
+        </div>
+        <div>
+          <label for="triangle_b">b:</label>
+          <input id="triangle_b" type="number" min="1"/>
+        </div>
+        <div>
+          <label for="triangle_c">c:</label>
+          <input id="triangle_c" type="number" min="1"/>
+        </div>
+        <div><button type="button" id="triangle_submit">test</button></div>
       </div>
-      <div>
-        <label for="triangle_b">b:</label>
-        <input id="triangle_b" type="number" min="1"/>
-      </div>
-      <div>
-        <label for="triangle_c">c:</label>
-        <input id="triangle_c" type="number" min="1"/>
-      </div>
-      <div><button type="button" id="triangle_submit">test</button></div>
-    </div>
-    
-    <div class="task">
-      <h2>task2:</h2>
-      <p>введите число</p>
-      <div>
-        <label for="task2">y:</label>
-        <input id="task2" type="number"/>
-      </div>
-      <div><button type="button" id="task2_submit">test</button></div>
-    </div>
 
-    <div class="task">
-      <h2>task3:</h2>
-      <p> текущий баланс: <span id="task3_balance"><span> </p>
-      <div>
-        <label for="task3_value">сумма: </label>
-        <input type="number" min="1" id="task3_value">
+      <div class="task">
+        <h2>task2:</h2>
+        <p>введите Y:</p>
+        <div>
+          <label for="task2">Y:</label>
+          <input id="task2" type="number"/>
+        </div>
+        <var>(Y-2)<var> <sup>Y</sup></var>
+          <div><button type="button" id="task2_submit">test</button></div>
       </div>
-      <div>
-        <button class="task3_button" id="task3_deposit" type="button">Внести</button>
-        <button class="task3_button" id="task3_withdraw" type="button">Снять</button>
-      </div>
-    </div>
 
+      <div class="task">
+        <h2>task3:</h2>
+        <p> текущий баланс: <span id="task3_balance"><span> </p>
+        <div>
+          <label for="task3_value">сумма: </label>
+          <input type="number" min="1" id="task3_value">
+        </div>
+        <div>
+          <button class="task3_button" id="task3_deposit" type="button">Внести</button>
+          <button class="task3_button" id="task3_withdraw" type="button">Снять</button>
+        </div>
+      </div>
+
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
