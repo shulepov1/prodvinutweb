@@ -17,7 +17,7 @@
 
 */
 
-
+// 1
 const triangleA = document.getElementById("triangle_a");
 const triangleB = document.getElementById("triangle_b");
 const triangleC = document.getElementById("triangle_c");
@@ -52,4 +52,63 @@ function checkTriangleExistence(ap, bp, cp) {
 triangleSubmitButton.addEventListener("click", () => {checkTriangleExistence(
 	triangleA.value, triangleB.value, triangleC.value
 )});
+
+
+// 2
+
+const yInput = document.getElementById("task2");
+const task2Submit = document.getElementById("task2_submit");
+
+const calculator = {
+	base: 0,
+	power() { alert( (this.base - 2) ** this.base ); }
+};
+
+task2Submit.addEventListener("click", () => {
+	calculator.base = yInput.value;
+	calculator.power();
+});
+
+// 3
+
+let balance = 0;
+const balanceDisplay = document.getElementById("task3_balance");
+
+const valueInput = document.getElementById("task3_value");
+
+const depositButton = document.getElementById("task3_deposit");
+const withdrawButton = document.getElementById("task3_withdraw");
+
+depositButton.addEventListener("click", () => { updateBalance(Number(valueInput.value))});
+withdrawButton.addEventListener("click", () => { updateBalance(Number(valueInput.value) * -1)});
+
+
+function updateBalance(valuep) {
+	console.log(`received value: ${valuep}`);
+
+	if (!valuep && valuep !== 0 || typeof valuep !== "number") {
+		renderBalance(balance);
+		alert("Не получилось обновить счет");
+		return;
+	}
+
+	const newBalance = balance + valuep;
+
+	if (newBalance < 0) {
+		alert("Недостаточно средств");
+		return;
+	}
+
+	renderBalance(newBalance);
+	balance = newBalance;
+	return;
+}
+
+function renderBalance(value){
+	console.log(`rendering ${value}`);
+	balanceDisplay.textContent = value.toString();
+	return;
+}
+
+updateBalance(balance);
 
