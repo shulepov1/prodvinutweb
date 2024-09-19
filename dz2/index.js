@@ -79,21 +79,41 @@ const valueInput = document.getElementById("task3_value");
 const depositButton = document.getElementById("task3_deposit");
 const withdrawButton = document.getElementById("task3_withdraw");
 
-depositButton.addEventListener("click", () => { updateBalance(Number(valueInput.value))});
-withdrawButton.addEventListener("click", () => { updateBalance(Number(valueInput.value) * -1)});
+depositButton.addEventListener("click", () => { deposit(valueInput.value) });
+withdrawButton.addEventListener("click", () => { withdraw(valueInput.value) });
 
+function check(inputValue) {
+	const messages = [];
+	if (Number(inputValue) === NaN || Number(inputValue) < 1) {
+		messages.push("Неверное значение");	
+	}
 
-function updateBalance(valuep) {
-	console.log(`received value: ${valuep}`);
+	return messages;
+}
 
-	if (!valuep && valuep !== 0 || typeof valuep !== "number") {
-		renderBalance(balance);
-		alert("Не получилось обновить счет");
+function deposit(value) {
+	const failedCheck = check(value);
+	if (failedCheck.length > 0) {
+		alert(failedCheck.toString());
 		return;
 	}
 
-	const newBalance = balance + valuep;
+	const newBalance = balance + Number(value);
 
+	renderBalance(newBalance);
+	balance = newBalance;
+
+	return;
+}
+
+function withdraw(value) {
+	const failedCheck = check(value);
+	if (failedCheck.length > 0) {
+		alert(failedCheck);
+		return;
+	}
+	
+	const newBalance = balance - Number(value);
 	if (newBalance < 0) {
 		alert("Недостаточно средств");
 		return;
@@ -101,14 +121,15 @@ function updateBalance(valuep) {
 
 	renderBalance(newBalance);
 	balance = newBalance;
+
 	return;
 }
 
 function renderBalance(value){
-	console.log(`rendering ${value}`);
 	balanceDisplay.textContent = value.toString();
+	valueInput.value = "";
 	return;
 }
 
-updateBalance(balance);
+renderBalance(balance);
 
