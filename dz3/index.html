@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="palindrome" class="task">
+      <h2>палиндром</h2>
+      <label> является ли строка палиндромом
+        <input id="palindrome_inpt" type="text"/>
+      </label>
+      <span id="palindrome_result"></span>
+    </div>
+
+
+    <div id="guessgame" class="task"> 
+      <h2>игра угадайка</h2>
+      <button id="guessgame__restart" type="button">restart</button>
+      <p>кол-во жизней: <span id="guessgame__lives"></span></p>
+      <p>баллы: <span id="guessgame__points"></span></p>
+      <p id="guessgame__msg"> </p>
+
+      <div id="guessgame__choosing"> 
+        <p>задайте диапазон</p>
+        <label>a: <input type="text" id="guessgame__a"> </label>
+        <label>b: <input type="text" id="guessgame__b"> </label>
+        <button id="guessgame__start" type="button">ok</button>
+      </div>
+
+      <div id="guessgame__playing">
+        <p> загаданное число в диапазоне от <span id="guessgame__playing__a"></span> до <span id="guessgame__playing__b"></span> </p> 
+        <label> ваше число
+          <input type="number" id="guessgame__guess"/>
+        </label>
+        <button type="button" id="guessgame__guessbtn">guess</button>
+        <p id="guessgame__guessresult"> </p>
+      </div>
+
+    </div>
+    <script src="./index.js"></script>
+    <script src="./guessgame.js"></script>
+  </body>
+
+</html>

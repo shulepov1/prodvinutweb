@@ -67,7 +67,7 @@ const calculator = {
 task2Submit.addEventListener("click", () => {
 	calculator.base = yInput.value;
 	calculator.power();
-});
+});``
 
 // 3
 
