@@ -69,6 +69,7 @@ document.getElementById("task5__getRes").addEventListener("click", () => {
 	});
 
 	const sorted = converted.sort( (a,b) => {
+		// молоко 34
 		const aSplitted = a.split(" ");
 		const bSplitted = b.split(" ");
 
@@ -90,7 +91,112 @@ document.getElementById("task5__getRes").addEventListener("click", () => {
 
 // task 6 максимальная суммарная прибыль
 
-document.getElementById("task6__getRes").addEventListener("click", () => {
-	const str = document.getElementById("task6__names").value;
-	console.log(str.split("\n"));
+document.getElementById("task6__input").addEventListener("change", function(event){
+	const file = this.files[0];
+	const reader = new FileReader();
+	
+	const sums = new Map();
+
+	let maxName = null;
+	let maxProfit = -1;
+
+	reader.addEventListener("load", () => {
+		const str = reader.result;
+		
+		str.split("\n").forEach((entry) => {
+			if (!entry || entry === "END") {
+				//
+			} else {
+				const splittedEntry = entry.split(",");
+				const name = splittedEntry[0];
+				const profit = splittedEntry[1];
+
+				if (sums.has(name)) {
+					sums.set(name, sums.get(name) + Number(profit));
+				} else {
+					sums.set(name, Number(profit));
+				}
+				if (sums.get(name) > maxProfit) {
+					maxName = name;
+					maxProfit = sums.get(name); 
+				}
+			}
+		});
+
+		console.log(maxName, maxProfit);
+
+		document.getElementById("task6__getRes").textContent = `${maxName} ${maxProfit}`;
+
+	});
+
+	reader.readAsText(file);
+});
+
+// task 7 наибольшее кол-во концертов
+
+document.getElementById("task7__input").addEventListener("change", function(event){
+	const file = this.files[0];
+	const reader = new FileReader();
+	
+	const concertCounts = new Map();
+
+	let maxName = null;
+	let maxCount = -1;
+
+	reader.addEventListener("load", () => {
+		const str = reader.result;
+		
+		str.split("\n").forEach((entry) => {
+			if (!entry || entry === "END") {
+				//
+			} else {
+				const splittedEntry = entry.split(",");
+				const name = splittedEntry[0];
+				const date = splittedEntry[1];
+
+				if (date.split(".")[2] === "2023") {
+
+					if (concertCounts.has(name)) {
+						concertCounts.set(name, concertCounts.get(name) + 1);
+					} else {
+						concertCounts.set(name, 1);
+					}
+
+					if (concertCounts.get(name) > maxCount) {
+						maxName = name;
+						maxCount = concertCounts.get(name); 
+					}
+
+				}
+
+			}
+		});
+
+		console.log(maxName, maxCount);
+
+		document.getElementById("task7__getRes").textContent = `${maxName} ${maxCount}`;
+
+	});
+
+	reader.readAsText(file);
+});
+
+// task 8 города
+
+const cities = ["Москва", "Санкт-Петербург", "Саратов", "Магадан", "Ярославль", "Самара", "Якутск"];
+
+document.getElementById("task8__btn").addEventListener("click", () => {
+	const userInput = document.getElementById("task8__input").value;
+
+	const sameFirstLetter = cities.filter( (city) => {
+		return userInput[0] === city[0];
+	});
+
+	const msgElement = document.getElementById("task8__msg");
+	if (sameFirstLetter.length === 0) {
+		msgElement.textContent = "Такого города нет в списке";	
+	} else {
+		msgElement.textContent = `Города, начинающиеся с буквы "${userInput[0]}": ${sameFirstLetter.join(", ")}`;
+	}
+
 });
