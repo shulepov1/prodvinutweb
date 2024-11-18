@@ -1,8 +1,12 @@
 <template>
   <main class="app">
-    <GreetingComponent />
-    <AddTodoComponent @addTodo="addTodo" />
-    <TodoListComponent :todos="todos" @removeTodo="removeTodo" />
+    <div>
+      <GreetingComponent />
+      <AddTodoComponent @addTodo="addTodo" />
+    </div>
+    <div>
+      <TodoListComponent :todos="todos" @removeTodo="removeTodo" />
+    </div>
   </main>
 </template>
 
