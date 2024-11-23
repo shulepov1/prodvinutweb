@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
+import StartScreen from "./components/StartScreen.vue";
 import Countdown from "./components/Countdown.vue";
 import Remembering from "./components/Remembering.vue";
 import Guessing from "./components/Guessing.vue";
@@ -10,7 +11,7 @@ const currentLevel = ref(2);
 const grid = ref([]);
 const MAX_LEVEL = 5;
 
-const currentState = ref("countdown");
+const currentState = ref("start");
 
 const handleStateChange = (newState) => {
   currentState.value = newState;
@@ -31,7 +32,7 @@ const increaseCurrentLevel = () => {
 };
 
 onMounted(() => {
-  currentState.value = "countdown";
+  currentState.value = "start";
 });
 
 watch(currentLevel, () => {
@@ -50,6 +51,9 @@ const restart = () => {
 </script>
 
 <template>
+  <div v-if="currentState === 'start'">
+    <StartScreen @handleClick="handleStateChange"></StartScreen>
+  </div>
   <div v-if="currentState === 'end'">
     <h2>Игра окончена</h2>
     <button @click="restart">Начать сначала</button>
@@ -82,7 +86,7 @@ const restart = () => {
     ></Guessing>
   </div>
 
-  <div class="panel">
+  <div class="panel" v-if="currentState !== 'start'">
     <div class="panel__elt">
       <svg
         class="adnn-tick-icon"
