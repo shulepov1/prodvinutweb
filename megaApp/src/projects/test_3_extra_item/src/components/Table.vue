@@ -90,10 +90,14 @@ setTimeout(() => {
 }
 
 @media (width < 800px) {
+  .grid {
+    column-gap: 0.1rem;
+    row-gap: 0.1rem;
+  }
   .cell {
     font-size: min(3rem, 3vw);
-    width: min(50px, 5vw);
-    height: min(50px, 5vw);
+    width: min(50px, 7vw);
+    height: min(50px, 7vw);
   }
 }
 </style>
