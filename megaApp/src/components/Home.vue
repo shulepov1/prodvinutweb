@@ -28,4 +28,12 @@ main {
   align-items: center;
   height: 100%;
 }
+
+@media (width < 800px) {
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>

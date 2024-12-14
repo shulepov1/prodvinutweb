@@ -38,7 +38,7 @@ setTimeout(() => {
         }
       "
     >
-      {{ value }}
+      <span>{{ value }}</span>
     </div>
   </div>
 </template>
@@ -58,6 +58,7 @@ setTimeout(() => {
 .cell {
   width: 50px;
   height: 50px;
+
   color: green;
   background-color: yellowgreen;
   display: flex;
@@ -85,6 +86,14 @@ setTimeout(() => {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (width < 800px) {
+  .cell {
+    font-size: min(3rem, 3vw);
+    width: min(50px, 5vw);
+    height: min(50px, 5vw);
   }
 }
 </style>

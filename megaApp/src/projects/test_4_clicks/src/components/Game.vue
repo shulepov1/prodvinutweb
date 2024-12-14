@@ -90,8 +90,9 @@ export default {
 }
 
 .clickArea {
-  width: 800px;
-  height: 100px;
+  max-width: 800px;
+  width: 80vw;
+  height: 10vh;
   margin: 0 auto;
   background-color: rgb(34, 133, 34);
   cursor: pointer;

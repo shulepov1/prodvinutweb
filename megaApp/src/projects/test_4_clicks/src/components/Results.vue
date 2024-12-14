@@ -61,6 +61,13 @@ const latestResult = results[results.length - 1];
   gap: 5rem;
 }
 
+@media (width < 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+  }
+}
+
 .animal {
   animation-name: animal;
   animation-duration: 1s;

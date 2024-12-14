@@ -76,13 +76,13 @@ const handleClick = (e, cell, index) => {
           }
         "
       >
-        {{ cell !== null ? cell : "" }}
+        <span>{{ cell !== null ? cell : "" }}</span>
       </div>
     </div>
 
     <div v-if="roundState === 'lost'" class="grid">
       <div v-for="(cell, index) in grid" :key="index" class="cell">
-        {{ cell !== null ? cell : "" }}
+        <span>{{ cell !== null ? cell : "" }}</span>
       </div>
     </div>
   </div>
@@ -93,15 +93,21 @@ const handleClick = (e, cell, index) => {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 5px;
-  width: 600px;
-  height: 500px;
-
+  grid-template-columns: repeat(
+    6,
+    1fr
+  ); /* Adjust number of columns as needed */
+  grid-template-rows: repeat(5, 1fr); /* Adjust number of rows as needed */
+  max-width: 600px;
+  width: 100%;
+  max-height: 500px; /* Optional: to limit the height */
+  height: 100%;
   justify-content: center;
   align-content: center;
   justify-items: center;
@@ -117,20 +123,38 @@ const handleClick = (e, cell, index) => {
   border: 1px solid #ccc;
   font-size: 3rem;
   font-weight: bold;
-  height: 100%;
-  width: 100%;
-
+  position: relative;
+  padding-top: 100%; /* This creates a square aspect ratio */
+  width: 100%; /* Fill the parent width */
+  height: 0; /* Allow padding-top to define the height */
+  max-width: 100%;
   user-select: none;
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell > span {
+  margin-bottom: 100%;
 }
 
 .cell.hidden {
   background-color: #333;
 }
+
 .cell.hidden:hover {
   cursor: pointer;
 }
 
 button {
   margin-bottom: 20px;
+}
+
+@media (width < 800px) {
+  .cell {
+    font-size: 2rem;
+  }
 }
 </style>

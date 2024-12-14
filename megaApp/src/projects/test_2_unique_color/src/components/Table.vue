@@ -76,6 +76,8 @@ chooseRandomColor();
   border: 4px solid rgb(190, 149, 33);
   border-radius: 10px;
   padding: 0.5rem;
+
+  width: 100%;
 }
 .cell {
   width: 100px;
@@ -99,6 +101,13 @@ chooseRandomColor();
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (width < 800px) {
+  .cell {
+    width: 50px;
+    height: 50px;
   }
 }
 </style>

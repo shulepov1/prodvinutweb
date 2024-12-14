@@ -55,7 +55,7 @@ const updateGrid = (c) => {
   <div class="gridWrapper">
     <div class="grid">
       <div v-for="(cell, index) in grid" :key="index" class="cell">
-        {{ cell !== null ? cell : "" }}
+        <span>{{ cell !== null ? cell : "" }}</span>
       </div>
     </div>
   </div>
